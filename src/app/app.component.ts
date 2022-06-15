@@ -18,7 +18,7 @@ export class AppComponent {
   ngOnInit() {
     setTimeout(() => {
       this._store.dispatch(setLoadingState({ isLoading: false }));
-    }, 1000);
+    }, 2000);
 
     this._store.select(appSelector).subscribe((loadingRes) => {
       this.isLoading = loadingRes;
