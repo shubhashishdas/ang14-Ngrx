@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Store } from '@ngrx/store';
 import { APP_STATE } from 'src/app/state/app-state';
 import { setLoadingState } from 'src/app/state/app.action';
+import { userLogin } from '../store/auth.action';
 
 @Component({
   selector: 'app-login',
@@ -27,10 +28,6 @@ export class LoginComponent implements OnInit {
 
   onLoginSubmit(): void {
     this._store.dispatch(setLoadingState({ isLoading: true }));
-    console.log('login submit created');
-    console.log(this.loginForm);
-    setTimeout(() => {
-      this._store.dispatch(setLoadingState({ isLoading: false }));
-    }, 2000);
+    this._store.dispatch(userLogin(this.loginForm.value));
   }
 }

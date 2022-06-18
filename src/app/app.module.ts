@@ -9,11 +9,13 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AppReducer } from './state/app.reducer';
 import { LoaderComponent } from './loader/loader.component';
-import { LoginComponent } from './modules/login/components/login.component';
 import { ReactiveFormsModule } from '@angular/forms';
-import { RegisterComponent } from './modules/register/component/register.component';
 import { NavigationComponent } from './shared/navigation/navigation.component';
-import { RegisterReducer } from './modules/register/store/register.reducer';
+import { EffectsModule } from '@ngrx/effects';
+import { LoginComponent } from './modules/auth/component/login.component';
+import { RegisterComponent } from './modules/auth/component/register.component';
+import { RegisterReducer } from './modules/auth/store/auth.reducer';
+import { RegisterEffects } from './modules/auth/store/auth.effect';
 
 @NgModule({
   declarations: [
@@ -32,6 +34,7 @@ import { RegisterReducer } from './modules/register/store/register.reducer';
       loading: AppReducer,
       userData: RegisterReducer,
     }),
+    EffectsModule.forRoot([RegisterEffects]),
     StoreDevtoolsModule.instrument({
       logOnly: environment.production, // Restrict extension to log-only mode
     }),

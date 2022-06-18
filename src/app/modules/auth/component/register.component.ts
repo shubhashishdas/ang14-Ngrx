@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Store } from '@ngrx/store';
-import { registerUser } from '../store/register.action';
+import { setLoadingState } from 'src/app/state/app.action';
+import { registerUser } from '../store/auth.action';
 
 @Component({
   selector: 'app-register',
@@ -27,7 +28,8 @@ export class RegisterComponent implements OnInit {
 
   onSignupFormSubmit() {
     if (this.signupForm.valid) {
-      this._store.dispatch(registerUser());
+      this._store.dispatch(setLoadingState({ isLoading: true }));
+      this._store.dispatch(registerUser(this.signupForm.value));
     }
   }
 }

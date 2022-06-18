@@ -1,4 +1,4 @@
-export interface REGISTER_STATE {
+export interface USER_STATE {
   username: string;
   email: string;
   password: string;
@@ -7,7 +7,7 @@ export interface REGISTER_STATE {
   token?: string;
 }
 
-export const REGISTER_INITIAL_STATE: REGISTER_STATE = {
+export const USER_INITIAL_STATE: USER_STATE = {
   username: '',
   email: '',
   password: '',

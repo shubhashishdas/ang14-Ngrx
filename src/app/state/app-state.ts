@@ -1,4 +1,4 @@
-import { REGISTER_STATE } from '../modules/register/store/register';
+import { USER_STATE } from '../modules/auth/store/auth';
 
 export interface LOADING_STATE {
   isLoading: boolean;
@@ -10,5 +10,5 @@ export const LOADING_INITIAL_STATE: LOADING_STATE = {
 
 export interface APP_STATE {
   loading: LOADING_STATE;
-  userData: REGISTER_STATE;
+  userData: USER_STATE;
 }
