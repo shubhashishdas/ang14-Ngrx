@@ -12,6 +12,13 @@ import { userLogin } from '../store/auth.action';
 })
 export class LoginComponent implements OnInit {
   loginForm: FormGroup;
+  // "user":{
+  //   "email":"s16@mailinator.com",
+  //   "username":"s16",
+  //   "bio":null,
+  //   "image":null,
+  //   "token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InMxNkBtYWlsaW5hdG9yLmNvbSIsInVzZXJuYW1lIjoiczE2IiwiaWF0IjoxNjU1NDc1Mzg5LCJleHAiOjE2NjA2NTkzODl9.uh2UCQdSJ5wKUbWZcFpzDzi9ye9XGBjoqriPHxwZTLc"
+  // }
 
   constructor(private _fb: FormBuilder, private _store: Store<APP_STATE>) {}
 
