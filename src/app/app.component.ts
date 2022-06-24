@@ -20,7 +20,7 @@ export class AppComponent {
   constructor(
     private _store: Store<APP_STATE>,
     private _sharedService: SharedService,
-    @Inject(SecondService) private _secondService: SecondService
+    // @Inject(SecondService) private _secondService: SecondService
   ) {}
 
   ngOnInit() {
