@@ -8,7 +8,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AppReducer } from './state/app.reducer';
-import { LoaderComponent } from './loader/loader.component';
+import { LoaderComponent } from './shared/loader/loader.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { NavigationComponent } from './shared/navigation/navigation.component';
 import { EffectsModule } from '@ngrx/effects';
@@ -16,8 +16,6 @@ import { LoginComponent } from './modules/auth/component/login.component';
 import { RegisterComponent } from './modules/auth/component/register.component';
 import { RegisterReducer } from './modules/auth/store/auth.reducer';
 import { RegisterEffects } from './modules/auth/store/auth.effect';
-import { SharedService } from './shared/service/shared.service';
-import { FirstService } from './shared/service/first.service';
 
 @NgModule({
   declarations: [

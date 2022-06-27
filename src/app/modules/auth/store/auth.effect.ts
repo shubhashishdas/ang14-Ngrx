@@ -1,6 +1,9 @@
 import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
+import { Store } from '@ngrx/store';
 import { catchError, exhaustMap, map, of, switchMap } from 'rxjs';
+import { APP_STATE } from 'src/app/state/app-state';
 import { setLoadingState } from 'src/app/state/app.action';
 import { AuthService } from '../service/auth.service';
 import {
@@ -12,7 +15,7 @@ import {
 
 @Injectable({ providedIn: 'root' })
 export class RegisterEffects {
-  constructor(private action$: Actions, private _authService: AuthService) {}
+  constructor(private action$: Actions, private _authService: AuthService, private _store: Store<APP_STATE>, private _router: Router) {}
 
   loginUser$ = createEffect(() =>
     this.action$.pipe(
@@ -25,8 +28,9 @@ export class RegisterEffects {
           },
         };
         return this._authService.login(saveData).pipe(
-          map((userData) => {
-            setLoadingState({ isLoading: false });
+          map((userData: any) => {
+            this._router.navigate(['gallery']);
+            this._store.dispatch(setLoadingState({ isLoading: false }));
             return loginSuccess(userData.user);
           }),
           catchError(() => {

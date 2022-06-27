@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
+import { SharedService } from '../service/shared.service';
 
 @Component({
   selector: 'app-navigation',
@@ -6,10 +8,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./navigation.component.scss']
 })
 export class NavigationComponent implements OnInit {
-
-  constructor() { }
+  isLoggedIn: boolean;
+  constructor( private _sharedService: SharedService,) { }
 
   ngOnInit(): void {
+    this._sharedService.isLoggedIn().subscribe(isLoggedInValue => {
+      this.isLoggedIn = isLoggedInValue;
+    });
   }
 
 }

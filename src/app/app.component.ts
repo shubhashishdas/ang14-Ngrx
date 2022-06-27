@@ -10,8 +10,7 @@ import { appSelector } from './state/app.selector';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss'],
-  providers: [{provide: SharedService, useClass: FirstService}]
+  styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
   title = 'Angular 14';
@@ -33,7 +32,7 @@ export class AppComponent {
     });
 
     console.log(this._sharedService.getServiceName());
-    console.log(this._secondService.getServiceName());
+    // console.log(this._secondService.getServiceName());
     // console.log(this._sharedService.showName());
   }
 }
