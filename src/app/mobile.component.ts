@@ -6,18 +6,16 @@ import { setLoadingState } from './state/app.action';
 import { appSelector } from './state/app.selector';
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  selector: 'mobile-root',
+  templateUrl: './mobile.component.html'
 })
-export class AppComponent {
+export class MobileComponent {
   title = 'Angular 14';
   isLoading: any;
 
   constructor(
     private _store: Store<APP_STATE>,
-    private _sharedService: SharedService,
-    // @Inject(SecondService) private _secondService: SecondService
+    private _sharedService: SharedService
   ) {}
 
   ngOnInit() {
@@ -30,7 +28,7 @@ export class AppComponent {
     });
 
     console.log(this._sharedService.getServiceName());
-    // console.log(this._secondService.getServiceName());
+    console.log("In Mobile component");
     // console.log(this._sharedService.showName());
   }
 }

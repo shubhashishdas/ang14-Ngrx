@@ -22,7 +22,12 @@ export class SharedService {
     console.log(`${this.name} getServiceName() called`);
   }
 
-  // showName() {
-  //   console.log('First Service showName...');
-  // }
+  appInit() {
+    return new Promise<void>((resolve, reject) => {
+      setTimeout(() => {
+        console.info("SharedService: Inside appInit method.");
+        resolve();
+      }, 5000);
+    })
+  }
 }
