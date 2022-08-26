@@ -1,0 +1,34 @@
+{
+    "users": [
+        {
+            "username": "shubhashish",
+            "bio": "string",
+            "image": "string",
+            "token": "string",
+            "firstname": "shubhashish",
+            "lastname": "das",
+            "password": "shubhashish123456",
+            "email": "test.shubhashish@gmail.com"
+        },
+        {
+            "username": "kavita",
+            "bio": "string",
+            "image": "string",
+            "token": "string",
+            "firstname": "kavita",
+            "lastname": "gothwal",
+            "password": "kavita123456",
+            "email": "kavita@mailinator.com"
+        },
+        {
+            "username": "suraj",
+            "bio": "string",
+            "image": "string",
+            "token": "string",
+            "firstname": "suraj",
+            "lastname": "das",
+            "password": "suraj123456",
+            "email": "suraj@mailinator.com"
+        }
+    ]
+}

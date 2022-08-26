@@ -18,6 +18,7 @@ import { RegisterReducer } from './modules/auth/store/auth.reducer';
 import { RegisterEffects } from './modules/auth/store/auth.effect';
 import { SharedService } from './shared/service/shared.service';
 import { MobileComponent } from './mobile.component';
+import { NotificationComponent } from './shared/notification/notification.component';
 
 function initializeAppFactory(sharedService: SharedService) {
   return function () { 
@@ -32,7 +33,7 @@ function initializeAppFactory2() {
       setTimeout(() => {
         console.log("Resolve initializeAppFactory2");
         resolve();
-      }, 10000);
+      }, 1000);
     })
   }
 }
@@ -44,6 +45,7 @@ function initializeAppFactory2() {
     LoginComponent,
     RegisterComponent,
     NavigationComponent,
+    NotificationComponent,
   ],
   imports: [
     BrowserModule,
@@ -77,7 +79,6 @@ function initializeAppFactory2() {
 export class AppModule implements DoBootstrap {
   // Load root component dynamically on the basis of conditions
   ngDoBootstrap(appRef: ApplicationRef) {
-    console.info("In ngDoBootstrap");
     const APP: any = (window.innerWidth > 300) ? WebComponent : MobileComponent;
     appRef.bootstrap(APP, document.getElementById('app'));
   }

@@ -1,9 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Store } from '@ngrx/store';
+import { map } from 'rxjs';
+import { NotificationService } from 'src/app/shared/notification.service';
 import { APP_STATE } from 'src/app/state/app-state';
 import { setLoadingState } from 'src/app/state/app.action';
-import { userLogin } from '../store/auth.action';
+import { AuthService } from '../service/auth.service';
+import { loginSuccess, userLogin } from '../store/auth.action';
 
 @Component({
   selector: 'app-login',
@@ -12,15 +15,13 @@ import { userLogin } from '../store/auth.action';
 })
 export class LoginComponent implements OnInit {
   loginForm: FormGroup;
-  // "user":{
-  //   "email":"s16@mailinator.com",
-  //   "username":"s16",
-  //   "bio":null,
-  //   "image":null,
-  //   "token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InMxNkBtYWlsaW5hdG9yLmNvbSIsInVzZXJuYW1lIjoiczE2IiwiaWF0IjoxNjU1NDc1Mzg5LCJleHAiOjE2NjA2NTkzODl9.uh2UCQdSJ5wKUbWZcFpzDzi9ye9XGBjoqriPHxwZTLc"
-  // }
 
-  constructor(private _fb: FormBuilder, private _store: Store<APP_STATE>) {}
+  constructor(
+    private _fb: FormBuilder, 
+    private _store: Store<APP_STATE>,
+    private _authService: AuthService,
+    private _notificationService: NotificationService
+  ) {}
 
   ngOnInit(): void {
     this.createLoginForm();
@@ -35,6 +36,15 @@ export class LoginComponent implements OnInit {
 
   onLoginSubmit(): void {
     this._store.dispatch(setLoadingState({ isLoading: true }));
-    this._store.dispatch(userLogin(this.loginForm.value));
+    this._authService.login().pipe(
+      map((userData: any) => this._authService.authenticate(this.loginForm.value, userData) )).subscribe((loggedInData:any) => {
+        if (loggedInData.length) {
+          this._notificationService.showMessage('Logged In Successfully');
+          this._store.dispatch(loginSuccess(loggedInData[0]));
+        } else {
+          this._notificationService.showMessage('Email and Password are not correct.');
+        }
+        this._store.dispatch(setLoadingState({ isLoading: false }));
+      });
   }
 }

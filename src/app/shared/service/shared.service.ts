@@ -27,7 +27,7 @@ export class SharedService {
       setTimeout(() => {
         console.info("SharedService: Inside appInit method.");
         resolve();
-      }, 5000);
+      }, 1000);
     })
   }
 }
