@@ -1,20 +1,37 @@
-import { Component, OnInit } from '@angular/core';
-import { Observable } from 'rxjs';
-import { SharedService } from '../service/shared.service';
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { Subscription } from 'rxjs';
+import { AuthService } from 'src/app/modules/auth/service/auth.service';
 
 @Component({
   selector: 'app-navigation',
   templateUrl: './navigation.component.html',
   styleUrls: ['./navigation.component.scss']
 })
-export class NavigationComponent implements OnInit {
+export class NavigationComponent implements OnInit, OnDestroy {
   isLoggedIn: boolean;
-  constructor( private _sharedService: SharedService,) { }
+  subscription = new Subscription();
+
+  constructor(private _authService: AuthService, private _router: Router) { }
 
   ngOnInit(): void {
-    this._sharedService.isLoggedIn().subscribe(isLoggedInValue => {
-      this.isLoggedIn = isLoggedInValue;
-    });
+    this.subscription.add(this._authService.getLoginValue().subscribe((isLoggedIn) => {
+      this.isLoggedIn = isLoggedIn;
+    }));
+    if (localStorage.getItem("currentUser")) {
+      this.isLoggedIn = true;
+    }
+  }
+
+  ngOnDestroy(): void {
+    if (this.subscription) {
+      this.subscription.unsubscribe();
+    }
+  }
+
+  logout() {
+    this._authService.logout();
+    this._router.navigate(["/login"]);
   }
 
 }

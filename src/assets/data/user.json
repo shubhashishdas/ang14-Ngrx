@@ -2,9 +2,9 @@
     "users": [
         {
             "username": "shubhashish",
-            "bio": "string",
-            "image": "string",
-            "token": "string",
+            "bio": "",
+            "image": "",
+            "token": "",
             "firstname": "shubhashish",
             "lastname": "das",
             "password": "shubhashish123456",
@@ -12,9 +12,9 @@
         },
         {
             "username": "kavita",
-            "bio": "string",
-            "image": "string",
-            "token": "string",
+            "bio": "",
+            "image": "",
+            "token": "",
             "firstname": "kavita",
             "lastname": "gothwal",
             "password": "kavita123456",
@@ -22,13 +22,43 @@
         },
         {
             "username": "suraj",
-            "bio": "string",
-            "image": "string",
-            "token": "string",
+            "bio": "",
+            "image": "",
+            "token": "",
             "firstname": "suraj",
             "lastname": "das",
             "password": "suraj123456",
             "email": "suraj@mailinator.com"
+        },
+        {
+            "username": "A",
+            "bio": "",
+            "image": "",
+            "token": "",
+            "firstname": "a",
+            "lastname": "a",
+            "password": "a123456",
+            "email": "a@mailinator.com"
+        },
+        {
+            "username": "b",
+            "bio": "",
+            "image": "",
+            "token": "",
+            "firstname": "b",
+            "lastname": "b",
+            "password": "b123456",
+            "email": "b@mailinator.com"
+        },
+        {
+            "username": "c",
+            "bio": "",
+            "image": "",
+            "token": "",
+            "firstname": "c",
+            "lastname": "c",
+            "password": "c123456",
+            "email": "c@mailinator.com"
         }
     ]
 }

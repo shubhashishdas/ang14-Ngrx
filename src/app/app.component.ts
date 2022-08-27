@@ -1,4 +1,5 @@
 import { Component, Inject } from '@angular/core';
+import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { SharedService } from './shared/service/shared.service';
 import { APP_STATE } from './state/app-state';
@@ -17,8 +18,9 @@ export class AppComponent {
   constructor(
     private _store: Store<APP_STATE>,
     private _sharedService: SharedService,
+    private _router: Router,
     // @Inject(SecondService) private _secondService: SecondService
-  ) {}
+  ) { }
 
   ngOnInit() {
     setTimeout(() => {
@@ -28,9 +30,5 @@ export class AppComponent {
     this._store.select(appSelector).subscribe((loadingRes) => {
       this.isLoading = loadingRes;
     });
-
-    console.log(this._sharedService.getServiceName());
-    // console.log(this._secondService.getServiceName());
-    // console.log(this._sharedService.showName());
   }
 }

@@ -8,14 +8,10 @@ import { appSelector } from 'src/app/state/app.selector';
   providedIn: 'root'
 })
 export class SharedService {
-  name : string = 'Shared service';
+  name: string = 'Shared service';
 
   constructor(private _store: Store<APP_STATE>) {
     console.log(`${this.name} Initialize`);
-  }
-
-  isLoggedIn(): Observable<boolean> {
-    return this._store.select(appSelector).pipe(value => value);
   }
 
   getServiceName() {
@@ -28,6 +24,6 @@ export class SharedService {
         console.info("SharedService: Inside appInit method.");
         resolve();
       }, 1000);
-    })
+    });
   }
 }
