@@ -3,16 +3,17 @@ import { RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from './modules/auth/component/login.component';
 import { RegisterComponent } from './modules/auth/component/register.component';
 import { DashboardComponent } from './modules/dashboard/component/dashboard.component';
-import { GalleryComponent } from './modules/gallery/component/gallery.component';
 import { AuthenticationGuard } from './shared/guards/authentication.guard';
 
 const routes: Routes = [
   {
     path: 'register',
+    title: 'Registration',
     component: RegisterComponent,
   },
   {
     path: 'login',
+    title: 'Login',
     component: LoginComponent,
   },
   {
@@ -20,8 +21,8 @@ const routes: Routes = [
     canActivate: [AuthenticationGuard],
     children: [
       {
-        path: 'gallery',
-        component: GalleryComponent,
+        path: 'movies',
+        loadChildren: () => import('./modules/movies/movie.module').then(m => m.MovieModule)
       },
       {
         path: '',

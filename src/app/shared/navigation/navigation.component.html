@@ -1,4 +1,4 @@
-<ul class="nav justify-content-end navbar">
+<ul class="nav justify-content-end navbar nav-background">
   <ng-container *ngIf="isLoggedIn; else notLoggedIn">
     <li class="nav-item">
       <a class="nav-link" [routerLink]="['/']" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
@@ -6,8 +6,8 @@
       </a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" [routerLink]="['gallery']" routerLinkActive="active">
-        Gallery
+      <a class="nav-link" [routerLink]="['movies']" routerLinkActive="active">
+        Movies
       </a>
     </li>
     <li class="nav-item">
