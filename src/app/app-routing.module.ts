@@ -8,7 +8,7 @@ import { AuthenticationGuard } from './shared/guards/authentication.guard';
 const routes: Routes = [
   {
     path: 'register',
-    title: 'Registration',
+    title: 'Register',
     component: RegisterComponent,
   },
   {
@@ -21,11 +21,12 @@ const routes: Routes = [
     canActivate: [AuthenticationGuard],
     children: [
       {
-        path: 'movies',
-        loadChildren: () => import('./modules/movies/movie.module').then(m => m.MovieModule)
+        path: 'web-series',
+        loadChildren: () => import('./modules/web-series/web-series.module').then(m => m.WebSeriesModule)
       },
       {
         path: '',
+        title: 'Dashboard',
         component: DashboardComponent,
       },
     ]
