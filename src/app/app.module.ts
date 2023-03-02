@@ -19,6 +19,10 @@ import { RegisterEffects } from './modules/auth/store/auth.effect';
 import { SharedService } from './shared/service/shared.service';
 import { MobileComponent } from './mobile.component';
 import { NotificationComponent } from './shared/notification/notification.component';
+import { MovieDetailComponent } from './shared/movie-detail/movie-detail.component';
+import { WebSeriesDetailComponent } from './shared/web-series-detail/web-series-detail.component';
+import { DetailComponent } from './shared/details/detail.component';
+import { DetailDirective } from './shared/directives/detail.directive';
 
 function initializeAppFactory(sharedService: SharedService) {
   return function () { 
@@ -46,6 +50,10 @@ function initializeAppFactory2() {
     RegisterComponent,
     NavigationComponent,
     NotificationComponent,
+    MovieDetailComponent,
+    WebSeriesDetailComponent,
+    DetailComponent,
+    DetailDirective
   ],
   imports: [
     BrowserModule,

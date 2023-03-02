@@ -1,25 +1,25 @@
 import { Component, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { WebSeriesService } from '../service/web-series.service';
-import { WebSeries } from '../web-series';
+import { Movie } from '../movie';
+import { MovieService } from '../service/movie.service';
 
 @Component({
   selector: 'app-movie',
-  templateUrl: './web-series.component.html',
-  styleUrls: ['./web-series.component.scss']
+  templateUrl: './movie.component.html',
+  styleUrls: ['./movie.component.scss']
 })
-export class WebSeriesComponent extends WebSeries implements OnInit {
+export class MovieComponent extends Movie implements OnInit {
 
   constructor(
-    _webSeriesService: WebSeriesService,
+    _movieService: MovieService,
     private _router: Router,
     private _activatedRoute: ActivatedRoute
   ) {
-    super(_webSeriesService);
+    super(_movieService);
   }
 
   gotoDetailPage(id: string): void {
-    this._router.navigate([id], { relativeTo: this._activatedRoute, queryParams: {webseries: true} })
+    this._router.navigate([id], { relativeTo: this._activatedRoute, queryParams: {movie: true} })
     .then(nav => {
       console.log(nav); // true if navigation is successful
     }, err => {
