@@ -19,21 +19,9 @@
       }
     }
   }
-  /* li {
-    a {
-    display: block;
-    color: #000000;
-    font-weight: bold;
-    padding: 8px 16px;
-    text-decoration: none;
-    // & .active {
-    //   background-color: lavender;
-    // }
-  
-    // & :hover {
-    //   background-color: lavender;
-    //   // color: white;
-    // }
-  } */
+  &.nav-background {
+    background-color: #000;
+    opacity:0.7
+  }
 
 }
