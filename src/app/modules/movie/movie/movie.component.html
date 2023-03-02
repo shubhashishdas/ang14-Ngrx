@@ -22,9 +22,9 @@
   <div class="my-4">
       <h6>New Releases</h6>
       <div class="d-flex">
-          <div class="me-2 bg-light text-dark rounded items text-center" *ngFor="let webseries of webSeriesData" (click)="gotoDetailPage(webseries.id)">
+          <div class="me-2 bg-light text-dark rounded items text-center" *ngFor="let movie of moviesData" (click)="gotoDetailPage(movie.id)">
             <div class="">
-              {{webseries.title}}
+              {{movie.title}}
             </div>
           </div>
       </div>
@@ -32,9 +32,9 @@
   <div class="my-4">
       <h6>Trendings</h6>
       <div class="d-flex">
-          <div class="me-2 bg-light text-dark rounded items text-center" *ngFor="let webseries of webSeriesData" (click)="gotoDetailPage(webseries.id)">
+          <div class="me-2 bg-light text-dark rounded items text-center" *ngFor="let movie of moviesData" (click)="gotoDetailPage(movie.id)">
             <div class="">
-              {{webseries.title}}
+              {{movie.title}}
             </div>
           </div>
       </div>
@@ -42,9 +42,9 @@
   <div class="my-4">
       <h6>TV Shows</h6>
       <div class="d-flex">
-          <div class="me-2 bg-light text-dark rounded items text-center" *ngFor="let webseries of webSeriesData" (click)="gotoDetailPage(webseries.id)">
+          <div class="me-2 bg-light text-dark rounded items text-center" *ngFor="let movie of moviesData" (click)="gotoDetailPage(movie.id)">
             <div class="">
-              {{webseries.title}}
+              {{movie.title}}
             </div>
           </div>
       </div>

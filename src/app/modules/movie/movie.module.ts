@@ -1,14 +1,14 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
-import { WebSeriesComponent } from './web-series/web-series.component';
 import { DetailComponent } from 'src/app/shared/details/detail.component';
+import { MovieComponent } from './movie/movie.component';
 
 const routes: Routes = [
   {
     path: '',
-    title: 'Web Series',
-    component: WebSeriesComponent
+    title: 'Movies',
+    component: MovieComponent
   },
   {
     path:':id',
@@ -19,7 +19,7 @@ const routes: Routes = [
 
 @NgModule({
   declarations: [
-    WebSeriesComponent,
+    MovieComponent,
     // DetailComponent
   ],
   imports: [
@@ -27,4 +27,4 @@ const routes: Routes = [
     RouterModule.forChild(routes)
   ]
 })
-export class WebSeriesModule { }
+export class MovieModule { }
