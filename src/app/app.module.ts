@@ -23,6 +23,7 @@ import { MovieDetailComponent } from './shared/movie-detail/movie-detail.compone
 import { WebSeriesDetailComponent } from './shared/web-series-detail/web-series-detail.component';
 import { DetailComponent } from './shared/details/detail.component';
 import { DetailDirective } from './shared/directives/detail.directive';
+import { favoriteMovieReducer } from './modules/favorite/state/favorite.reducer';
 
 function initializeAppFactory(sharedService: SharedService) {
   return function () { 
@@ -63,6 +64,7 @@ function initializeAppFactory2() {
     StoreModule.forRoot({
       loading: AppReducer,
       userData: RegisterReducer,
+      favorite: favoriteMovieReducer
     }),
     EffectsModule.forRoot([RegisterEffects]),
     StoreDevtoolsModule.instrument({

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-web-series-detail',
@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./web-series-detail.component.scss']
 })
 export class WebSeriesDetailComponent implements OnInit {
-
+  @Input() id: string;
   constructor() { }
 
   ngOnInit(): void {

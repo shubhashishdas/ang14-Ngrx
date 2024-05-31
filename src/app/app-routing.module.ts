@@ -30,6 +30,10 @@ const routes: Routes = [
         loadChildren: () => import('./modules/movie/movie.module').then(m => m.MovieModule)
       },
       {
+        path:'favorite',
+        loadChildren: () => import('./modules/favorite/favorite.module').then(m => m.FavoriteModule)
+      },
+      {
         path: 'contact-us',
         title:'Contact Us',
         component: ContactUsComponent
